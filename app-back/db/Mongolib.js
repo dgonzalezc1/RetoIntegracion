@@ -26,5 +26,14 @@ const findDocuments = function (db, callback) {
     });
 }
 
+const createDocument = function (db, obj, callback){
+    const collection = db.collection('offers');
+    collection.insertOne(obj, function(err, res) {
+        if (err) callback(err);
+        callback("Document created");
+      });
+}
+
 exports.getDatabase = getDatabase;
 exports.findDocuments = findDocuments;
+exports.createDocument = createDocument;
