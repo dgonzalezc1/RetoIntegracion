@@ -29,7 +29,7 @@ const validateOffer = (offer)=>{
     const schema = Joi.object({
         name: Joi.string().min(2).required(),
         company: Joi.string().min(2).required(),
-        salary : Joi.number().required(),
+        salary : Joi.min(2).required(),
         city: Joi.string().min(2).required()
     });
     return schema.validate(offer);
